@@ -2,37 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-if(!function_exists('rb_component_select'))
-{
-	function rb_component_select($name,$where=array(),$order="",$table,$field_value,$field_label,$selected_value='',$att=array())
-	{
-		$CI=& get_instance();
-		$CI->load->library('m_db');
-		$o='';
-		$attribute="";
-		if(!empty($att))
-		{
-			$attribute=string_implode_array($att);
-		}
-		$o.='<select name="'.$name.'" '.$attribute.'>';
-		if($CI->m_db->is_bof($table,$where)==FALSE)
-		{
-			$d=$CI->m_db->get_data($table,$where,$order);
-			foreach($d as $r)
-			{
-				$xlabel=field_value($table,$field_value,$selected_value,$field_label);
-				if(!empty($selected_value))
-				{
-					$o.= '<option value="'.$selected_value.'">'.$xlabel.'</option>';
-				}
-				$o.= '<option value="'.$r->$field_value.'">'.$r->$field_label.'</option>';
-			}
-		}				
-		$o.='</select>';
-		return $o;
-	}
-}
-
 if(!function_exists('rb_component_select_bulan'))
 {
 	function rb_component_select_bulan($name,$firstvalue='',$att=array())
@@ -55,7 +24,7 @@ if(!function_exists('rb_component_select_bulan'))
 		$attribute="";
 		if(!empty($att))
 		{
-			$attribute=string_implode_array($att);
+			$attribute=rb_string_implode_array($att);
 		}
 		$o.='<select name="'.$name.'" '.$attribute.'>';
 		foreach($arr as $k=>$v)
@@ -121,38 +90,6 @@ if(!function_exists('rb_component_choice'))
 	}
 }
 
-if(!function_exists('rb_component_ckeditor'))
-{
-	function rb_component_ckeditor($textareaID,$lang="id",$height=300,$filemanager=TRUE)
-	{
-		$o='';
-		$fm=base_url().'res/filemanager?tipe=single';
-		$ckeditorurl=path_assets('url').'plugins/ckeditor/';		
-		$skin="office2013";
-		$skinurl=$ckeditorurl.'skins/'.$skin.'/';		
-		$o.="<script>";		
-		
-		$tmp="CKEDITOR.replace( '".$textareaID."', {
-		    language: '".$lang."',
-		    skin: '".$skin.",".$skinurl."',
-		    height: $height,
-		    filebrowserBrowseUrl: '".$fm."',
-		});";
-		
-		if($filemanager==FALSE)
-		{
-			$tmp="CKEDITOR.replace( '".$textareaID."', {
-			    language: '".$lang."',
-			    skin: '".$skin.",".$skinurl."',
-			    height: $height,			    
-			});";
-		}
-		$o.=$tmp;
-		$o.="</script>";
-		return $o;
-	
-	}	
-}
 
 if(!function_exists('rb_component_datepicker'))
 {
@@ -170,7 +107,7 @@ if(!function_exists('rb_component_datepicker'))
 		
 		if(empty($DefaultValue))
 		{
-			$DefaultValue=date_now(FALSE);
+			$DefaultValue=rb_date_now(FALSE);
 		}
 		
 		if(empty($CustomClass))
