@@ -56,3 +56,7 @@
     margin-left: 8px;
     top:7px;
 }
+
+.ui-datepicker{
+	z-index: 9999999 !important;
+}

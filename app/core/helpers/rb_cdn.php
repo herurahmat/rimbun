@@ -126,6 +126,20 @@ if(!function_exists('cdn_ckeditor'))
 	}
 }
 
+if(!function_exists('cdn_jqueryui'))
+{
+	function cdn_jqueryui($theme="smoothness")
+	{
+		$CI=& get_instance();
+		$url=rb_path_assets('url');
+		$a='';
+		$a.=rb_add_css($url.'cdn/jqueryui//jquery-ui.min.css');
+		$a.=rb_add_css($url.'cdn/jqueryui//themes/smoothness/jquery-ui.min.css');
+		$a.=rb_add_js($url.'cdn/jqueryui//jquery-ui.min.js');
+		return $a;
+	}
+}
+
 if(!function_exists('cdn_datatables'))
 {
 	function cdn_datatables($withButton=FALSE)
