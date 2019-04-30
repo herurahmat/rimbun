@@ -356,3 +356,17 @@ if(!function_exists('rb_check_remote_file'))
 		}
 	}
 }
+
+if(!function_exists('rb_simple_action'))
+{
+	function rb_simple_action($url,$id,$title,$withEdit=TRUE)
+	{
+		$p='';
+		if($withEdit==TRUE)
+		{
+			$p.='<a href="'.$url.'edit?id='.$id.'" class="btn btn-xs btn-info"><i class="fa fa-edit"></i></a> ';
+		}		
+		$p.='<a onclick="return confirm(\'Yakin ingin menghapus data '.$title.' ini?\');" href="'.$url.'delete?id='.$id.'" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a> ';
+		return $p;
+	}
+}
