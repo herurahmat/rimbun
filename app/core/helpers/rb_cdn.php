@@ -140,6 +140,21 @@ if(!function_exists('cdn_jqueryui'))
 	}
 }
 
+if(!function_exists('cdn_inputmask'))
+{
+	function cdn_inputmask()
+	{
+		$CI=& get_instance();
+		$url=rb_path_assets('url');
+		$a='';
+		$a.=rb_add_css($url.'cdn/inputmask/style.css');
+		$a.=rb_add_js($url.'cdn/inputmask/script.js');
+		$a.=rb_add_js($url.'cdn/inputmask/source.js');
+		
+		return $a;
+	}
+}
+
 if(!function_exists('cdn_datatables'))
 {
 	function cdn_datatables($withButton=FALSE)
