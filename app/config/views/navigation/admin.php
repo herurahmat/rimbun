@@ -51,27 +51,14 @@ $m_tools=array(
 				'icon'=>'fa fa-book',
 				'url'=>'core/tools/docedit',
 			),
-		),
-	),
-);
-
-$m_tes=array(
-	'Tes Help'=>array(
-		'icon'=>'fa fa-wrench',
-		's1'=>'inventori',
-		's2'=>'',
-		'child'=>array(
-			'Barang'=>array(
+			'Configuration Editor'=>array(
 				'icon'=>'fa fa-book',
-				'url'=>'inventori/barang',
-			),
-			'Kategori'=>array(
-				'icon'=>'fa fa-book',
-				'url'=>'inventori/kategori',
+				'url'=>'core/tools/config',
 			),
 		),
 	),
 );
 
 
-$menu=array_merge($m_user,$m_config,$m_tools,$m_tes);
+
+$menu=array_merge($m_user,$m_config,$m_tools);
