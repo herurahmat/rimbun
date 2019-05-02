@@ -43,9 +43,13 @@ class System_model extends CI_Model
 		}
 	}
 	
-	function option_edit_by_id($optionID,$meta_value)
+	function option_edit_by_id($optionID,$meta_value,$safe=FALSE)
 	{
 		$s=array('ID'=>$optionID);
+		if($safe==TRUE)
+		{
+			$s=array('ID'=>$optionID,'is_sistem'=>0);
+		}
 		$d=array('meta_value'=>$meta_value);
 		if($this->system->edit_row('options',$d,$s)==TRUE)
 		{
@@ -55,9 +59,13 @@ class System_model extends CI_Model
 		}
 	}
 	
-	function option_edit_by_key($meta_key,$meta_value)
+	function option_edit_by_key($meta_key,$meta_value,$safe=FALSE)
 	{
 		$s=array('meta_key'=>$meta_key);
+		if($safe==TRUE)
+		{
+			$s=array('meta_key'=>$meta_key,'is_sistem'=>0);
+		}
 		$d=array('meta_value'=>$meta_value);
 		if($this->system->edit_row('options',$d,$s)==TRUE)
 		{
