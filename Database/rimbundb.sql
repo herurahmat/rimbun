@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2019 at 12:06 AM
+-- Generation Time: May 03, 2019 at 01:48 AM
 -- Server version: 5.7.14-log
 -- PHP Version: 5.6.31
 
@@ -57,27 +57,6 @@ INSERT INTO `options` (`ID`, `meta_key`, `meta_value`, `is_sistem`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tes`
---
-
-CREATE TABLE `tes` (
-  `ID` int(11) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `tlp` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tes`
---
-
-INSERT INTO `tes` (`ID`, `nama`, `tlp`) VALUES
-(1, 'A', '1'),
-(2, 'B', '2'),
-(3, 'C', '3');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -99,8 +78,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `user_token`, `user_role_id`, `username`, `password`, `email`, `full_name`, `nick_name`, `avatar`, `status`) VALUES
-(1, '7YebsuCKDS', 1, 'super', '$2a$08$8K2RmcdEqK2gcn7SGJtuveX6oBJhwr3YJp4EbyZTENh3lhNfcUq4y', 'eyubalzary@gmail.com', 'Heru Rahmat Akhnuari', 'heru', 'ava-c4ca4238a0b923820dcc509a6f75849b.jpg', 1),
-(9, '8XZJ5Dphkfu9jeUni3KovLymSCqwdVraOEWtGzMP', 12, 'op', '$2a$08$cHwhyViaXPE4uzOfQRIsUOKoQ.0I.bUME1E02sxmaoTWkLXskOeFC', 'op@gmail.com', 'Operator', 'op', '', 1);
+(1, '7YebsuCKDS', 1, 'super', '$2a$08$8K2RmcdEqK2gcn7SGJtuveX6oBJhwr3YJp4EbyZTENh3lhNfcUq4y', 'eyubalzary@gmail.com', 'Heru Rahmat Akhnuari', 'heru', 'ava-c4ca4238a0b923820dcc509a6f75849b.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -138,7 +116,13 @@ INSERT INTO `user_log` (`ID`, `user_id`, `time`, `message`, `log_data`) VALUES
 (15, 1, 1555768646, 'Failed delete user', '{\"user_id\":\"1\",\"tanggal\":\"20:57:26\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/73.0.3683.103 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
 (16, 1, 1555768651, 'User has beed deleted', '{\"user_id\":\"1\",\"tanggal\":\"20:57:31\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/73.0.3683.103 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
 (17, 1, 1555771489, 'Role has been Deleted', '{\"user_id\":\"1\",\"tanggal\":\"21:44:49\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/73.0.3683.103 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
-(18, 1, 1555771544, 'Berhasil menambahkan user Operator', '{\"user_id\":\"1\",\"tanggal\":\"21:45:44\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/73.0.3683.103 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}');
+(18, 1, 1555771544, 'Berhasil menambahkan user Operator', '{\"user_id\":\"1\",\"tanggal\":\"21:45:44\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/73.0.3683.103 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(19, 1, 1556822168, 'Successed Add Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:36:08\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(20, 1, 1556822237, 'Successed remove Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:37:17\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(21, 1, 1556822241, 'Successed Add Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:37:21\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(22, 1, 1556822538, 'Successed Change Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:42:18\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(23, 1, 1556822543, 'Successed Change Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:42:23\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(24, 1, 1556822547, 'Successed remove Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:42:27\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}');
 
 -- --------------------------------------------------------
 
@@ -172,8 +156,7 @@ CREATE TABLE `user_role` (
 --
 
 INSERT INTO `user_role` (`ID`, `role_key`, `role_value`, `is_enable`, `is_add`) VALUES
-(1, 'admin', 'Super Administrator', 1, 0),
-(12, 'op', 'Operator', 1, 1);
+(1, 'admin', 'Super Administrator', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -198,12 +181,6 @@ CREATE TABLE `user_role_meta` (
 ALTER TABLE `options`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `meta_key` (`meta_key`);
-
---
--- Indexes for table `tes`
---
-ALTER TABLE `tes`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `users`
@@ -250,13 +227,7 @@ ALTER TABLE `user_role_meta`
 -- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
---
--- AUTO_INCREMENT for table `tes`
---
-ALTER TABLE `tes`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -268,7 +239,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_log`
 --
 ALTER TABLE `user_log`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `user_meta`
