@@ -376,7 +376,7 @@ if(!function_exists('get_navigation'))
 	function get_navigation()
 	{
 		$CI=& get_instance();
-		$CI->load->library(RIMBUN_SYSTEM.DS.'navigation');
+		$CI->load->library(RIMBUN_SYSTEM.'/navigation');
 		$arr=$CI->navigation->get_navigation();
 		return $arr;
 	}
