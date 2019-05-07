@@ -5,14 +5,14 @@ Rimbun Codeigniter Starter
 
 *******************
 Server Requirements
-*******************
+
 
 PHP Versi 5.6 atau yang terbaru
 mod_rewrite
 
 *******************
 Cara Instalasi
-*******************
+
 1. Ektrak file download dari Master.zip <https://github.com/urangawak/rimbun/archive/master.zip>`_
 2. Buat database
 3. Import Database
@@ -21,4 +21,3 @@ Cara Instalasi
 
 *******************
 Cara Penggunaan (Soon)
-*******************
