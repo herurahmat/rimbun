@@ -20,4 +20,32 @@ Cara Instalasi
 
 
 *******************
+Fitur
+1. CDN
+- Bootstrap 3
+- CKEditor
+- Datatables
+- Font Awesome
+- Input Mask
+- IonIcons
+- Jquery
+- Select2
+
+2. Libraries
+- HMVC
+- ORM Database
+- Bootstrap
+- File and File Upload
+- UUID
+- Hash Password
+- PSR4 Autoloader
+- Datatables
+
+3. Helper
+- Element HTML
+- Date
+- Path Asset,Upload
+- String
+
+*******************
 Cara Penggunaan (Soon)
