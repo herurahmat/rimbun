@@ -43,6 +43,10 @@ class Navigation
 	{
 		$output=array();
 		$dir=FCPATH.RIMBUN_FOLDER.DS.'plugins';
+		if(is_dir($dir))
+		{
+			
+		
 		$arr=$this->get_plugins_folder($dir);
 		$base_file='Home.php';
 		if(!empty($arr))
@@ -62,6 +66,7 @@ class Navigation
 					}
 				}
 			}
+		}
 		}
 		return $output;
 	}
