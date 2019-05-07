@@ -48,4 +48,4 @@ Fitur
 - String
 
 *******************
-Cara Penggunaan (Soon)
+Cara Penggunaan <https://github.com/urangawak/rimbun/wiki>
