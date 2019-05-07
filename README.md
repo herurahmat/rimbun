@@ -13,7 +13,7 @@ mod_rewrite
 *******************
 Cara Instalasi
 
-1. Ektrak file download dari Master.zip <https://github.com/urangawak/rimbun/archive/master.zip>`_
+1. Ektrak file download dari Master.zip <https://github.com/urangawak/rimbun/archive/master.zip>
 2. Buat database
 3. Import Database
 4. Konfigurasi database.php, config.php, rimbun.php (jika ingin custom)
