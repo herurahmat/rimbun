@@ -20,7 +20,7 @@ $m_user=array(
 );
 
 $m_config=array(
-	'Konfigurasi'=>array(
+	'Configuration'=>array(
 		'icon'=>'fa fa-gear',
 		's1'=>'core',
 		's2'=>'configuration',
