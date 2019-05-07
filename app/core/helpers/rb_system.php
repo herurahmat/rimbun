@@ -370,3 +370,14 @@ if(!function_exists('rb_simple_action'))
 		return $p;
 	}
 }
+
+if(!function_exists('get_navigation'))
+{
+	function get_navigation()
+	{
+		$CI=& get_instance();
+		$CI->load->library(RIMBUN_SYSTEM.DS.'navigation');
+		$arr=$CI->navigation->get_navigation();
+		return $arr;
+	}
+}

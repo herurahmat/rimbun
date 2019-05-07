@@ -1,8 +1,8 @@
 <?php
-$navFile=FCPATH.RIMBUN_FOLDER."/".RIMBUN_CONFIG."/"."views/navigation/".rb_user_role().".php";
-if(file_exists($navFile) && is_file($navFile))
+//$navFile=FCPATH.RIMBUN_FOLDER."/".RIMBUN_CONFIG."/"."views/navigation/".rb_user_role().".php";
+$navFile=get_navigation();
+if(!empty($navFile))
 {
-require_once($navFile);
 function generate_menu($menu)
 {
 	$output='';
@@ -57,6 +57,6 @@ function generate_menu($menu)
 	}
 	return $output;
 }
-echo generate_menu($menu);
+echo generate_menu($navFile);
 }
 ?>
