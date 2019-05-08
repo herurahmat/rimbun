@@ -231,6 +231,12 @@ function create_table()
 		?>
 		
 			<input type="hidden" name="db" value="<?=$database;?>"/>
+			<div class="form-group ">
+				<label class="control-label col-sm-2">Database</label>
+				<div class="col-md-10">
+					<p class="form-control-static"><?=$database;?></p>
+				</div>
+			</div>
 			<div class="form-group required">
 				<label class="control-label col-sm-2">Table Name</label>
 				<div class="col-md-7">

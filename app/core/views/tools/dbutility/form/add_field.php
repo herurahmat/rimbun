@@ -5,6 +5,18 @@ echo form_open('#',array('id'=>'frmadd','class'=>'form-horizontal'));
 
 	<input type="hidden" name="db" value="<?=$database;?>"/>
 	<input type="hidden" name="tb" value="<?=$table;?>"/>
+	<div class="form-group ">
+		<label class="control-label col-sm-2">Database</label>
+		<div class="col-md-10">
+			<p class="form-control-static"><?=$database;?></p>
+		</div>
+	</div>
+	<div class="form-group ">
+		<label class="control-label col-sm-2">Table</label>
+		<div class="col-md-10">
+			<p class="form-control-static"><?=$table;?></p>
+		</div>
+	</div>
 	<div class="form-group required">
 		<label class="control-label col-sm-2">Field Name</label>
 		<div class="col-md-6">
