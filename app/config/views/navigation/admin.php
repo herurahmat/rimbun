@@ -55,6 +55,10 @@ $m_tools=array(
 				'icon'=>'fa fa-book',
 				'url'=>'core/tools/config',
 			),
+			'Database Explorer'=>array(
+				'icon'=>'fa fa-database',
+				'url'=>'core/tools/dbutility',
+			),
 		),
 	),
 );
