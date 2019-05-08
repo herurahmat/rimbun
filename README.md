@@ -17,6 +17,9 @@ Cara Instalasi
 2. Buat database
 3. Import Database
 4. Konfigurasi database.php, config.php, rimbun.php (jika ingin custom)
+5. user login
+username : super
+password : admin
 
 
 *******************
