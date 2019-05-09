@@ -28,8 +28,13 @@ class Dbutility extends H_Controller
 		if($this->input->is_ajax_request()==TRUE)
 		{
 			$db=$this->input->get('db',TRUE);
+			$table=$this->mydb->tables_list($db);
+			if(empty($db))
+			{
+				$table=array();
+			}
 			$d['url']=$this->mod_url;
-	    	$d['tables']=$this->mydb->tables_list($db);
+	    	$d['tables']=$table;
 	    	$d['database']=$db;
 	    	$d['type']=$this->mydb->table_type();
 	    	$this->load->view($this->prefix_folder.'template/table_view',$d);
