@@ -1,5 +1,7 @@
 <?php
 echo cdn_select2();
+echo cdn_jqueryui();
+echo cdn_datetimepicker();
 ?>
 <div class="row">
 	<div class="col-md-5">

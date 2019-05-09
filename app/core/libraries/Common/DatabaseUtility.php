@@ -10,6 +10,7 @@ class DatabaseUtility
 	private $CI;
 	private $mydb;
 	private $forge;
+	private $dbutil;
 	
 	public function __construct()
 	{
@@ -99,6 +100,17 @@ class DatabaseUtility
 		}
 	}
 	
+	public function table_repair($dbgroup,$table)
+	{
+		$this->dbutil=$this->CI->load->dbutil($dbgroup,TRUE);
+		if($this->dbutil->repair_table($table)==TRUE)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	public function table_has_primary($dbgroup,$table)
 	{
 		if(!in_array($table,$this->table_protect))
@@ -173,6 +185,22 @@ class DatabaseUtility
 		}
 	}
 	
+	public function table_insert($dbgroup,$table,$data)
+	{
+		if(!empty($data))
+		{
+			$this->database_connect($dbgroup);
+			$this->mydb->insert($table,$data);
+			if($this->mydb->affected_rows()>0){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
+	
 	public function table_type()
 	{
 		$arr=array(
@@ -206,5 +234,104 @@ class DatabaseUtility
 		);
 		$item=strtr($type,$arr);
 		return $item;
+	}
+	
+	public function table_generate_insert($dbgroup,$table)
+	{
+		$o='';
+		$arr_input=array('VARCHAR');
+		$arr_number=array('INT','BIGINT','TINYINT','DECIMAL','FLOAT','DOUBLE');
+		$arr_date=array('DATE');
+		$arr_datetime=array('DATETIME');
+		$arr_text=array('TEXT');
+		$this->database_connect($dbgroup);
+		$field_data=$this->mydb->field_data($table);
+		foreach($field_data as $f){
+			$name=$f->name;
+			$pk=$f->primary_key;
+			$type=strtoupper($f->type);
+			if($pk==0)
+			{
+				
+			
+			if(in_array($type,$arr_input))
+			{
+				$o.=$this->_element_input($name);
+			}
+			if(in_array($type,$arr_date))
+			{
+				$o.=$this->_element_date($name);
+			}
+			if(in_array($type,$arr_datetime))
+			{
+				$o.=$this->_element_datetime($name);
+			}
+			if(in_array($type,$arr_number))
+			{
+				$o.=$this->_element_number($name);
+			}
+			if(in_array($type,$arr_text))
+			{
+				$o.=$this->_element_textarea($name);
+			}
+			
+			}
+		}
+		return $o;
+	}
+	
+	private function _element_input($name)
+	{
+		$o='<div class="form-group">
+			<label class="control-label col-sm-2">'.$name.'</label>
+			<div class="col-md-10">
+				<input type="text" name="item['.$name.']" class="form-control"/>
+			</div>
+		</div>';
+		return $o;
+	}
+	
+	private function _element_number($name)
+	{
+		$o='<div class="form-group">
+			<label class="control-label col-sm-2">'.$name.'</label>
+			<div class="col-md-10">
+				<input type="number" name="item['.$name.']" class="form-control"/>
+			</div>
+		</div>';
+		return $o;
+	}
+	
+	private function _element_textarea($name)
+	{
+		$o='<div class="form-group">
+			<label class="control-label col-sm-2">'.$name.'</label>
+			<div class="col-md-10">
+				<textarea name="item['.$name.']" class="form-control"></textarea>
+			</div>
+		</div>';
+		return $o;
+	}
+	
+	private function _element_date($name)
+	{
+		$o='<div class="form-group">
+			<label class="control-label col-sm-2">'.$name.'</label>
+			<div class="col-md-4">
+				<input type="text" name="item['.$name.']" class="form-control tanggal2"/>
+			</div>
+		</div>';
+		return $o;
+	}
+	
+	private function _element_datetime($name)
+	{
+		$o='<div class="form-group">
+			<label class="control-label col-sm-2">'.$name.'</label>
+			<div class="col-md-4">
+				<input type="text" name="item['.$name.']" class="form-control datetime2"/>
+			</div>
+		</div>';
+		return $o;
 	}
 }

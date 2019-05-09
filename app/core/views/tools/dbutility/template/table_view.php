@@ -17,8 +17,11 @@ if(!empty($tables))
 			<div class="panel-heading">
 				<div class="panel-title"><?=$tb;?>
 					<button type="button" onclick="delete_table('<?=$tb;?>','<?=$database;?>');" class="btn btn-danger btn-flat btn-xs pull-right">
-						<i class="fa fa-trash"></i>
-					</button>
+						<i class="fa fa-trash"></i> 
+					</button> 
+					<button type="button" onclick="show_table('<?=$tb;?>','<?=$database;?>');" class="btn btn-default btn-flat btn-xs pull-right">
+						<i class="fa fa-table"></i> 
+					</button> &nbsp;&nbsp;
 				</div>
 			</div>
 			<div class="panel-body">
@@ -42,6 +45,13 @@ if(!empty($tables))
 				echo '<a href="javascript:;" onclick="create_field(\''.$tb.'\',\''.$database.'\');">+ Create Field</a>';
 				echo '</ul>';
 				?>
+			</div>
+			<div class="panel-footer">
+				<select class="form-control action">
+					<option value="" selected="">Tools</option>
+					<option data-table="<?=$tb;?>" data-action="insert">Insert Row</option>
+					<option data-table="<?=$tb;?>" data-action="repair">Repair</option>
+				</select>
 			</div>
 		</div>
 		</div>
@@ -96,7 +106,87 @@ $(document).ready(function(){
 		}
 	});
 	
+	$(".action").each(function(){
+		$(this).on('change',function(){
+			var element = $("option:selected", this);
+			var tb=element.attr('data-table');
+			var act=element.attr('data-action');
+			if(act=="repair")
+			{
+				table_repair(tb);
+			}else if(act=="insert")
+			{
+				table_insert(tb);
+			}
+		});
+	})
+	
 });
+
+function table_repair(table)
+{
+	if(typeof table=="undefined")
+	{
+		return false;
+	}
+	var database="<?=$database;?>";
+	if(confirm('Are your sure repair table?'))
+	{
+		
+	
+	$.ajax({
+	    url: "<?=$url;?>table_repair",
+	    data:"tb="+table+"&db="+database,
+	    type: "get",
+	    dataType : "json",
+	    beforeSend: function(  ) {
+	    	overlay_show();
+	  	},
+		})
+	  	.done(function( x ) {
+			show_table(database);
+			overlay_hide();
+	  	})
+	  	.fail(function( ) {
+	    	alert('Server tidak merespon');
+	    	overlay_hide();
+	  	})
+	  	.always(function( ) {
+	    	
+	});
+	}
+}
+
+function table_insert(table)
+{
+	if(typeof table=="undefined")
+	{
+		return false;
+	}
+	var database="<?=$database;?>";
+	$.ajax({
+	    url: "<?=$url;?>table_insert_form",
+	    data:"tb="+table+"&db="+database,
+	    type: "get",
+	    dataType : "html",
+	    beforeSend: function(  ) {
+	    	overlay_show();
+	  	},
+		})
+	  	.done(function( x ) {
+			$("#modaltool-title").html('Insert Row <br/>Table : '+table+' Database : '+database);
+			$("#modaltool-body").html(x);
+			$("#modaltool").modal('show');
+			overlay_hide();
+	  	})
+	  	.fail(function( ) {
+	    	alert('Server tidak merespon');
+	    	overlay_hide();
+	  	})
+	  	.always(function( ) {
+	    	
+	});
+}
 
 function create_field(table,database)
 {
@@ -327,6 +417,23 @@ function create_table()
       </div>
       <div class="modal-body">
         <div id="form-add-field"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modaltool" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modaltool-title">#Title#</h4>
+      </div>
+      <div class="modal-body">
+        <div id="modaltool-body"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

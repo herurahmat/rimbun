@@ -170,5 +170,63 @@ class Dbutility extends H_Controller
 			die("Not Ajax Request");
 		}
 	}
+	
+	function table_repair()
+	{
+		if($this->input->is_ajax_request()==TRUE)
+		{
+			$tb=$this->input->get('tb',TRUE);
+			$db=$this->input->get('db',TRUE);
+			if($this->mydb->table_repair($db,$tb)==TRUE)
+			{
+				echo json_encode(array('status'=>'ok'));
+			}else{
+				echo json_encode(array('status'=>'no'));
+			}
+		}else{
+			die("Not Ajax Request");
+		}
+	}
+	
+	function table_insert_form()
+	{
+		if($this->input->is_ajax_request()==TRUE)
+		{
+			$tb=$this->input->get('tb',TRUE);
+			$db=$this->input->get('db',TRUE);
+			$d['table']=$tb;
+			$d['database']=$db;
+			$d['url']=$this->mod_url;
+			$d['html']=$this->mydb->table_generate_insert($db,$tb);
+			$this->load->view($this->prefix_folder.'form/add_row',$d);
+		}else{
+			die("Not Ajax Request");
+		}
+	}
+	
+	function table_insert()
+	{
+		if($this->input->is_ajax_request()==TRUE)
+		{
+			$this->form_validation->set_rules('table','Table','required');
+			$this->form_validation->set_rules('database','Database','required');
+			if($this->form_validation->run()==TRUE)
+			{
+				$table=$this->input->post('table',TRUE);
+				$database=$this->input->post('database',TRUE);
+				$data=$this->input->post('item',TRUE);
+				if($this->mydb->table_insert($database,$table,$data)==TRUE)
+				{
+					echo json_encode(array('status'=>'ok'));
+				}else{
+					echo json_encode(array('status'=>'no'));
+				}
+			}else{
+				echo json_encode(array('status'=>'no'));
+			}
+		}else{
+			die("Not Ajax Request");
+		}
+	}
     
 }
