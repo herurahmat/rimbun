@@ -1,7 +1,10 @@
 <?php
-echo '<p>';
-echo '<a href="javascript:;" onclick="create_table();" class="btn btn-primary btn-flat btn-sm">Create Table</a>';
-echo '</p>';
+if(!empty($database))
+{
+	echo '<p>';
+	echo '<a href="javascript:;" onclick="create_table();" class="btn btn-primary btn-flat btn-sm">Create Table</a>';
+	echo '</p>';
+}
 if(!empty($tables))
 {
 	echo '<div class="row">';
