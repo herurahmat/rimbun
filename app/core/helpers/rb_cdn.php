@@ -155,6 +155,20 @@ if(!function_exists('cdn_inputmask'))
 	}
 }
 
+if(!function_exists('cdn_datetimepicker'))
+{
+	function cdn_datetimepicker()
+	{
+		$CI=& get_instance();
+		$url=rb_path_assets('url');
+		$a='';
+		$a.=rb_add_css($url.'cdn/datetimepicker/jquery.datetimepicker.min.css');
+		$a.=rb_add_js($url.'cdn/datetimepicker/jquery.datetimepicker.full.min.js');
+		
+		return $a;
+	}
+}
+
 if(!function_exists('cdn_datatables'))
 {
 	function cdn_datatables($withButton=FALSE)
