@@ -317,4 +317,73 @@ class User_model extends CI_Model
 		}
 	}
 	
+	function user_meta($where=array(),$order="ID DESC")
+	{
+		$d=$this->user->get_data('user_meta',$where,$order);
+		return $d;
+	}
+	
+	function user_meta_info_user($userID,$key)
+	{
+		$s=array('user_id'=>$userID,'meta_key'=>$key);
+		$d=$this->user_get_data('user_meta',$s,'meta_key ASC');
+		return $d;
+	}
+	
+	function user_meta_add($userID,$meta_key,$meta_value='')
+	{
+		$d=array(
+			'user_id'=>$userID,
+			'meta_key'=>$meta_key,
+			'meta_value'=>$meta_value
+		);
+		if($this->user->add_row('user_meta',$d)==TRUE)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	function user_meta_edit($userID,$meta_key,$meta_value='')
+	{
+		$s=array(
+			'user_id'=>$userID,
+			'meta_key'=>$meta_key,
+		);
+		$d=array(
+			'meta_value'=>$meta_value
+		);
+		if($this->user->edit_row('user_meta',$d,$s)==TRUE)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	function user_meta_delete($userID,$meta_key)
+	{
+		$s=array(
+			'user_id'=>$userID,
+			'meta_key'=>$meta_key,
+		);
+		if($this->user->delete_row('user_meta',$s)==TRUE)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	function user_meta_delete_custom($where)
+	{
+		if($this->user->delete_row('user_meta',$where)==TRUE)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }
