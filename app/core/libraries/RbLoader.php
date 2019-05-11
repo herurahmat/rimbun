@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 $arr=array(
+	'Rimbun\Integration'=>$vendorDir.'/libraries/Integration',
 	'Rimbun\Common'=>$vendorDir.'/libraries/Common',
 	'Rimbun\Vendor'=>$vendorDir.'/libraries/Vendor',
 	'Rimbun\String'=>$vendorDir.'/libraries/String',
