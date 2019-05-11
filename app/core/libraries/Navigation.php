@@ -12,6 +12,10 @@ class Navigation
 	
 	function get_navigation()
 	{
+		if(file_exists($this->navigation_file) && is_file($this->navigation_file))
+		{
+			
+		
 		require_once($this->navigation_file);
 		$plugin=$this->get_plungins();
 		$merge=array();
@@ -37,6 +41,8 @@ class Navigation
 		
 		$arr=array_merge($menu,$merge);
 		return $arr;
+		
+		}
 	}
 	
 	private function get_plungins()
