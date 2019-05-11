@@ -13,7 +13,7 @@ class Profile extends H_Controller
 		$this->form_validation->CI =& $this;
 		$this->mod_url=base_url().RIMBUN_SYSTEM.'/'.$this->prefix_folder;
 		$this->up=new \Rimbun\Common\SuperUpload();
-		$this->load->model('user_model');
+		$this->load->model('user_action');
     }
     
     function index()
@@ -138,4 +138,5 @@ class Profile extends H_Controller
 			die("Not Ajax Request");
 		}
 	}
+		
 }

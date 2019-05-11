@@ -17,6 +17,7 @@ if($("#message_header").length)
 	},5000);
 }
 
+
 $(".btn[password-trigger]").on('click',function(){
 	var val=$(this).attr('password-trigger');
 	var stat=$(this).attr('password-stat');
@@ -112,13 +113,13 @@ if($(".duit").length > 0)
 
 });
 
+
 function strstr(haystack, needle, before_needle) {
     if(haystack.indexOf(needle) >= 0) 
         return before_needle ? haystack.substr(0, haystack.indexOf(needle)) 
                : haystack.substr(haystack.indexOf(needle));
     return false;
 }
-
 
 
 (function(b){"function"===typeof define&&define.amd?define(["jquery"],b):"object"===typeof exports?module.exports=b(require("jquery")):b(jQuery||Zepto)})(function(b){var y=function(a,d,e){a=b(a);var g=this,k=a.val(),l;d="function"===typeof d?d(a.val(),void 0,a,e):d;var c={invalid:[],getCaret:function(){try{var q,v=0,b=a.get(0),f=document.selection,c=b.selectionStart;if(f&&-1===navigator.appVersion.indexOf("MSIE 10"))q=f.createRange(),q.moveStart("character",a.is("input")?-a.val().length:-a.text().length),

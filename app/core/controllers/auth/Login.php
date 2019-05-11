@@ -35,6 +35,4 @@ class Login extends H_Controller
     		$this->load->view(RIMBUN_SYSTEM.'/template/login',$d);
 		}
     }
-    
-    
 }
