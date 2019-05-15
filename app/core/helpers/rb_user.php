@@ -106,3 +106,13 @@ if(!function_exists('rb_logging_user'))
 		return $o;
 	}
 }
+
+if(!function_exists('user_has_login_exists'))
+{
+	function user_has_login_exists()
+	{
+		$CI=& get_instance();
+		$CI->load->model(RIMBUN_SYSTEM.'/user_action');
+		return $CI->user_action->user_has_login_exist();
+	}
+}

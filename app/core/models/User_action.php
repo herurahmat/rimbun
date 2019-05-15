@@ -84,6 +84,17 @@ class User_action extends CI_Model
 		}
 	}
 	
+	function user_has_login_exist()
+	{
+		$session=$this->session->userdata($this->session_key);
+		if(!empty($session))
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	function user_info_by_session($output="ID")
 	{
 		$session=$this->session->userdata($this->session_key);
