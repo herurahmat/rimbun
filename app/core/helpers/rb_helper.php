@@ -7,3 +7,5 @@ require_once(dirname(__FILE__).DS.'rb_cdn.php');
 require_once(dirname(__FILE__).DS.'rb_date.php');
 require_once(dirname(__FILE__).DS.'rb_component.php');
 require_once(dirname(__FILE__).DS.'rb_string.php');
+require_once(dirname(__FILE__).DS.'rb_user.php');
+require_once(dirname(__FILE__).DS.'rb_template.php');
