@@ -204,3 +204,104 @@ if(!function_exists('cdn_datatables'))
 		return $a;
 	}
 }
+
+if(!function_exists('cdn_elfinder'))
+{
+	function cdn_elfinder()
+	{
+		$o=cdn_jqueryui();
+		$path_elfinder=rb_path_assets().'cdn/elfinder/';
+		$o.='
+		<link rel="stylesheet" href="'.$path_elfinder.'css/commands.css"    type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/common.css"      type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/contextmenu.css" type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/cwd.css"         type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/dialog.css"      type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/fonts.css"       type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/navbar.css"      type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/places.css"      type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/quicklook.css"   type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/statusbar.css"   type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/theme.css"       type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/toast.css"       type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/toolbar.css"     type="text/css"/>
+		<script src="'.$path_elfinder.'js/elFinder.js"></script>
+		<script src="'.$path_elfinder.'js/elFinder.version.js"></script>
+		<script src="'.$path_elfinder.'js/jquery.elfinder.js"></script>
+		<script src="'.$path_elfinder.'js/elFinder.mimetypes.js"></script>
+		<script src="'.$path_elfinder.'js/elFinder.options.js"></script>
+		<script src="'.$path_elfinder.'js/elFinder.options.netmount.js"></script>
+		<script src="'.$path_elfinder.'js/elFinder.history.js"></script>
+		<script src="'.$path_elfinder.'js/elFinder.command.js"></script>
+		<script src="'.$path_elfinder.'js/elFinder.resources.js"></script>
+		<script src="'.$path_elfinder.'js/jquery.dialogelfinder.js"></script>
+		<script src="'.$path_elfinder.'js/i18n/elfinder.en.js"></script>
+		<script src="'.$path_elfinder.'js/ui/button.js"></script>
+		<script src="'.$path_elfinder.'js/ui/contextmenu.js"></script>
+		<script src="'.$path_elfinder.'js/ui/cwd.js"></script>
+		<script src="'.$path_elfinder.'js/ui/dialog.js"></script>
+		<script src="'.$path_elfinder.'js/ui/fullscreenbutton.js"></script>
+		<script src="'.$path_elfinder.'js/ui/navbar.js"></script>
+		<script src="'.$path_elfinder.'js/ui/navdock.js"></script>
+		<script src="'.$path_elfinder.'js/ui/overlay.js"></script>
+		<script src="'.$path_elfinder.'js/ui/panel.js"></script>
+		<script src="'.$path_elfinder.'js/ui/path.js"></script>
+		<script src="'.$path_elfinder.'js/ui/places.js"></script>
+		<script src="'.$path_elfinder.'js/ui/searchbutton.js"></script>
+		<script src="'.$path_elfinder.'js/ui/sortbutton.js"></script>
+		<script src="'.$path_elfinder.'js/ui/stat.js"></script>
+		<script src="'.$path_elfinder.'js/ui/toast.js"></script>
+		<script src="'.$path_elfinder.'js/ui/toolbar.js"></script>
+		<script src="'.$path_elfinder.'js/ui/tree.js"></script>
+		<script src="'.$path_elfinder.'js/ui/uploadButton.js"></script>
+		<script src="'.$path_elfinder.'js/ui/viewbutton.js"></script>
+		<script src="'.$path_elfinder.'js/ui/workzone.js"></script>
+		<script src="'.$path_elfinder.'js/commands/archive.js"></script>
+		<script src="'.$path_elfinder.'js/commands/back.js"></script>
+		<script src="'.$path_elfinder.'js/commands/chmod.js"></script>
+		<script src="'.$path_elfinder.'js/commands/colwidth.js"></script>
+		<script src="'.$path_elfinder.'js/commands/copy.js"></script>
+		<script src="'.$path_elfinder.'js/commands/cut.js"></script>
+		<script src="'.$path_elfinder.'js/commands/download.js"></script>
+		<script src="'.$path_elfinder.'js/commands/duplicate.js"></script>
+		<script src="'.$path_elfinder.'js/commands/edit.js"></script>
+		<script src="'.$path_elfinder.'js/commands/empty.js"></script>
+		<script src="'.$path_elfinder.'js/commands/extract.js"></script>
+		<script src="'.$path_elfinder.'js/commands/forward.js"></script>
+		<script src="'.$path_elfinder.'js/commands/fullscreen.js"></script>
+		<script src="'.$path_elfinder.'js/commands/getfile.js"></script>
+		<script src="'.$path_elfinder.'js/commands/help.js"></script>
+		<script src="'.$path_elfinder.'js/commands/hidden.js"></script>
+		<script src="'.$path_elfinder.'js/commands/hide.js"></script>
+		<script src="'.$path_elfinder.'js/commands/home.js"></script>
+		<script src="'.$path_elfinder.'js/commands/info.js"></script>
+		<script src="'.$path_elfinder.'js/commands/mkdir.js"></script>
+		<script src="'.$path_elfinder.'js/commands/mkfile.js"></script>
+		<script src="'.$path_elfinder.'js/commands/netmount.js"></script>
+		<script src="'.$path_elfinder.'js/commands/open.js"></script>
+		<script src="'.$path_elfinder.'js/commands/opendir.js"></script>
+		<script src="'.$path_elfinder.'js/commands/opennew.js"></script>
+		<script src="'.$path_elfinder.'js/commands/paste.js"></script>
+		<script src="'.$path_elfinder.'js/commands/places.js"></script>
+		<script src="'.$path_elfinder.'js/commands/preference.js"></script>
+		<script src="'.$path_elfinder.'js/commands/quicklook.js"></script>
+		<script src="'.$path_elfinder.'js/commands/quicklook.plugins.js"></script>
+		<script src="'.$path_elfinder.'js/commands/reload.js"></script>
+		<script src="'.$path_elfinder.'js/commands/rename.js"></script>
+		<script src="'.$path_elfinder.'js/commands/resize.js"></script>
+		<script src="'.$path_elfinder.'js/commands/restore.js"></script>
+		<script src="'.$path_elfinder.'js/commands/rm.js"></script>
+		<script src="'.$path_elfinder.'js/commands/search.js"></script>
+		<script src="'.$path_elfinder.'js/commands/selectall.js"></script>
+		<script src="'.$path_elfinder.'js/commands/selectinvert.js"></script>
+		<script src="'.$path_elfinder.'js/commands/selectnone.js"></script>
+		<script src="'.$path_elfinder.'js/commands/sort.js"></script>
+		<script src="'.$path_elfinder.'js/commands/undo.js"></script>
+		<script src="'.$path_elfinder.'js/commands/up.js"></script>
+		<script src="'.$path_elfinder.'js/commands/upload.js"></script>
+		<script src="'.$path_elfinder.'js/commands/view.js"></script>
+		';
+		
+		return $o;
+	}
+}

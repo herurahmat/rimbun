@@ -23,6 +23,34 @@ class Elfinder_Connector
 		$this->con->run();
 	}
 	
+	public function widget()
+	{
+		$o=cdn_elfinder();
+		$o.='<script>
+			$(document).ready(function(){
+				var optelfinder={
+						url : "'.base_url().'core/connector/elfindercon",
+			            resizable: false,
+			            baseUrl : "'.rb_path_assets().'cdn/elfinder/",
+			            getFileCallback : function(file) {
+					    window.opener.CKEDITOR.tools.callFunction((function() {
+					            var reParam = new RegExp("(?:[\?&]|&amp;)CKEditorFuncNum=([^&]+)", "i") ;
+					            var match = window.location.search.match(reParam) ;
+					            return (match && match.length > 1) ? match[1] : "" ;
+					        })(), file.url);
+					        window.close();
+					    },
+					}
+			        $("#elfinder").elfinder(optelfinder);
+				
+			});
+
+			</script>
+
+			<div id="elfinder"></div>';
+		return $o;
+	}
+	
 	private function _file_deny()
 	{
 		$arr=array('text/php','text/x-php','application/php','application/x-php','application/x-httpd-php','application/x-httpd-php-source');

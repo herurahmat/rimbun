@@ -134,6 +134,16 @@ if(!function_exists('rb_component_datepicker'))
 	}
 }
 
+if(!function_exists('rb_component_elfinder'))
+{
+	function rb_component_elfinder()
+	{
+		$CI=& get_instance();
+		$CI->load->library('core/elfinder_connector');
+		return $CI->elfinder_connector->widget();
+	}
+}
+
 if(!function_exists('rb_component_password_field'))
 {
 	function rb_component_password_field($Name,$Placeholder="",$isRequired=FALSE,$CustomClass="",$CustomID="")
