@@ -1,0 +1,14 @@
+{
+	"description": "Rimbun Codeigniter Starter",
+	"name": "herurahmat/rimbun",
+	"type": "project",
+	"homepage": "http://ilmuprogrammer.com",
+	"license": "MIT",
+	"support": {
+		"wiki": "https://github.com/herurahmat/rimbun/wiki",
+		"source": "https://github.com/herurahmat/rimbun"
+	},
+	"require": {
+		"php": ">=5.4.8"
+	},
+}
