@@ -212,19 +212,7 @@ if(!function_exists('cdn_elfinder'))
 		$o=cdn_jqueryui();
 		$path_elfinder=rb_path_assets().'cdn/elfinder/';
 		$o.='
-		<link rel="stylesheet" href="'.$path_elfinder.'css/commands.css"    type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/common.css"      type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/contextmenu.css" type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/cwd.css"         type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/dialog.css"      type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/fonts.css"       type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/navbar.css"      type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/places.css"      type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/quicklook.css"   type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/statusbar.css"   type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/theme.css"       type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/toast.css"       type="text/css"/>
-		<link rel="stylesheet" href="'.$path_elfinder.'css/toolbar.css"     type="text/css"/>
+		<link rel="stylesheet" href="'.$path_elfinder.'css/compare.css"    type="text/css"/>
 		<script src="'.$path_elfinder.'js/elFinder.js"></script>
 		<script src="'.$path_elfinder.'js/elFinder.version.js"></script>
 		<script src="'.$path_elfinder.'js/jquery.elfinder.js"></script>
