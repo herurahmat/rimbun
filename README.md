@@ -9,6 +9,8 @@ Server Requirements
 
 PHP Versi 5.6 atau yang terbaru
 mod_rewrite
+Jquery 3.2.1
+Bootstrap 3.4.1
 
 *******************
 Cara Instalasi
@@ -26,13 +28,13 @@ password : admin
 Fitur
 1. CDN
 - Bootstrap 3
-- CKEditor
 - Datatables
 - Font Awesome
 - Input Mask
 - IonIcons
 - Jquery
 - Select2
+- Elfinder
 
 2. Libraries
 - HMVC
@@ -43,12 +45,19 @@ Fitur
 - Hash Password
 - PSR4 Autoloader
 - Datatables
+- CMS
+- Bootstrap
+- Autonumber
+- Convertion (Terbilang, Roman Number)
 
 3. Helper
 - Element HTML
 - Date
 - Path Asset,Upload
 - String
+- Database
+- Template
+- User
 
 *******************
 Cara Penggunaan <https://github.com/urangawak/rimbun/wiki>
