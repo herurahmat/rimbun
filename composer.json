@@ -4,10 +4,21 @@
 	"type": "project",
 	"homepage": "http://ilmuprogrammer.com",
 	"license": "MIT",
+	"version": "1.0.0",
+	"keywords": [
+        "codeigniter",
+        "builder",
+    ],
 	"support": {
 		"wiki": "https://github.com/herurahmat/rimbun/wiki",
 		"source": "https://github.com/herurahmat/rimbun"
 	},
+	"authors": [
+        {
+            "name": "Heru Rahmat Akhnuari",
+            "email": "eyubalzary@gmail.com"
+        }
+    ],
 	"require": {
 		"php": ">=5.4.8"
 	}
