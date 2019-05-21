@@ -61,3 +61,59 @@
 .ui-datepicker{
 	z-index: 9999999 !important;
 }
+
+.mjs-nestedSortable-error {
+	background: #fbe3e4;
+	border-color: transparent;
+}
+
+
+ol.sortable {
+	width: 100%;
+	padding-left: 25px;
+	margin-top: 5px;
+}
+
+ol.sortable,ol.sortable ol {
+	list-style-type: none;
+}
+
+.sortable li div {
+	margin-bottom: 4px;
+}
+
+.mjs-placeholder {
+	outline: 1px dashed #4183C4;
+}
+
+.menu-title
+{
+	width: 100%;
+	background-color: #dad7dd;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    min-height: 20px;
+    overflow: hidden;
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.menu-title > .menu-title-anchor
+{
+	float: right;
+}
+
+.menu-title > .menu-title-anchor > a
+{
+	margin-left: 5px;
+}

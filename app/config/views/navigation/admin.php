@@ -37,6 +37,10 @@ $m_config=array(
 				'icon'=>'fa fa-image',
 				'url'=>'core/configuration/logo',
 			),
+			'Menu Manager'=>array(
+				'icon'=>'fa fa-cube',
+				'url'=>'core/configuration/menu',
+			),
 		),
 	),
 );

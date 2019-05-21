@@ -19,6 +19,8 @@ class Navigation
 		require_once($this->navigation_file);
 		$plugin=$this->get_plungins();
 		$merge=array();
+		$role=rb_user_role();
+		$menu_db=$this->get_menu_db($role);
 		if(!empty($plugin))
 		{
 			$merge_data=array();
@@ -39,7 +41,7 @@ class Navigation
 			);
 		}
 		
-		$arr=array_merge($menu,$merge);
+		$arr=array_merge($menu,$menu_db,$merge);
 		return $arr;
 		
 		}
@@ -97,4 +99,13 @@ class Navigation
   		}
   		return $result;
 	}
+	
+	private function get_menu_db($role)
+	{
+		$CI=& get_instance();
+		$CI->load->model(RIMBUN_SYSTEM.'/menu_model');
+		$generate=$CI->menu_model->generate_menu_by_role($role);
+		return $generate;
+	}
+	
 }
