@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2019 at 01:48 AM
+-- Generation Time: May 22, 2019 at 02:38 AM
 -- Server version: 5.7.14-log
 -- PHP Version: 5.6.31
 
@@ -21,6 +21,49 @@ SET time_zone = "+00:00";
 --
 -- Database: `rimbundb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `ID` int(11) NOT NULL,
+  `menu_code` varchar(20) NOT NULL,
+  `menu_title` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu_access`
+--
+
+CREATE TABLE `menu_access` (
+  `ID` bigint(20) NOT NULL,
+  `user_role_id` int(11) NOT NULL,
+  `menu_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu_detail`
+--
+
+CREATE TABLE `menu_detail` (
+  `ID` bigint(20) UNSIGNED NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `menu_title` varchar(50) NOT NULL,
+  `icon` varchar(40) NOT NULL,
+  `s1` varchar(20) NOT NULL,
+  `s2` varchar(20) DEFAULT NULL,
+  `s3` varchar(20) DEFAULT NULL,
+  `menu_order` int(11) NOT NULL DEFAULT '0',
+  `url` varchar(50) DEFAULT NULL,
+  `menu_parent` bigint(20) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -78,7 +121,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `user_token`, `user_role_id`, `username`, `password`, `email`, `full_name`, `nick_name`, `avatar`, `status`) VALUES
-(1, '7YebsuCKDS', 1, 'super', '$2a$08$8K2RmcdEqK2gcn7SGJtuveX6oBJhwr3YJp4EbyZTENh3lhNfcUq4y', 'eyubalzary@gmail.com', 'Heru Rahmat Akhnuari', 'heru', 'ava-c4ca4238a0b923820dcc509a6f75849b.jpg', 1);
+(1, '7YebsuCKDS', 1, 'super', '$2a$08$8K2RmcdEqK2gcn7SGJtuveX6oBJhwr3YJp4EbyZTENh3lhNfcUq4y', 'adminsuper@gmail.com', 'Super Administrator', 'admin', 'ava-c4ca4238a0b923820dcc509a6f75849b.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -122,7 +165,10 @@ INSERT INTO `user_log` (`ID`, `user_id`, `time`, `message`, `log_data`) VALUES
 (21, 1, 1556822241, 'Successed Add Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:37:21\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
 (22, 1, 1556822538, 'Successed Change Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:42:18\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
 (23, 1, 1556822543, 'Successed Change Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:42:23\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
-(24, 1, 1556822547, 'Successed remove Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:42:27\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}');
+(24, 1, 1556822547, 'Successed remove Config Item', '{\"user_id\":\"1\",\"tanggal\":\"01:42:27\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(25, 1, 1557605055, 'Berhasil menambahkan user Operator', '{\"user_id\":\"1\",\"tanggal\":\"03:04:15\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(26, 1, 1557816836, 'Role has been Deleted', '{\"user_id\":\"1\",\"tanggal\":\"13:53:56\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}'),
+(27, 1, 1557816855, 'Berhasil menambahkan user Customer Service', '{\"user_id\":\"1\",\"tanggal\":\"13:54:15\",\"ip\":\"::1\",\"agen\":\"Mozilla\\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\\/537.36 (KHTML, like Gecko) Chrome\\/74.0.3729.131 Safari\\/537.36\",\"host\":\"HADES-LAPTOP\"}');
 
 -- --------------------------------------------------------
 
@@ -176,6 +222,28 @@ CREATE TABLE `user_role_meta` (
 --
 
 --
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `menu_access`
+--
+ALTER TABLE `menu_access`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `user_role_id` (`user_role_id`),
+  ADD KEY `menu_id` (`menu_id`);
+
+--
+-- Indexes for table `menu_detail`
+--
+ALTER TABLE `menu_detail`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `menu_parent` (`menu_parent`),
+  ADD KEY `menu_id` (`menu_id`);
+
+--
 -- Indexes for table `options`
 --
 ALTER TABLE `options`
@@ -224,22 +292,40 @@ ALTER TABLE `user_role_meta`
 --
 
 --
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `menu_access`
+--
+ALTER TABLE `menu_access`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `menu_detail`
+--
+ALTER TABLE `menu_detail`
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `options`
 --
 ALTER TABLE `options`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_log`
 --
 ALTER TABLE `user_log`
-  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user_meta`
@@ -251,7 +337,7 @@ ALTER TABLE `user_meta`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_role_meta`
