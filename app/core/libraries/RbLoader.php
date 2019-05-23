@@ -38,7 +38,7 @@ function rimbun_info()
 	$arr=array(
 		'name'=>'Rimbun Codeigniter Starting',
 		'base'=>'RIMBUN',
-		'version'=>'PRA ALPHA',
+		'version'=>'1.0.1',
 		'last_update'=>NULL,
 		'developer_name'=>'Heru Rahmat Akhnuari',
 		'developer_email'=>'eyubalzary@gmail.com'
