@@ -61,3 +61,8 @@ Fitur
 
 *******************
 Cara Penggunaan <https://github.com/urangawak/rimbun/wiki>
+
+*******************
+Contact Info :
+http://ilmuprogrammer.com <br/>
+eyubalzary@gmail.com
