@@ -9,6 +9,7 @@ class Users extends H_Controller
 	function __construct()
     {
         parent::__construct();
+        rb_user_check_access(array('admin'));
         $this->load->library('form_validation');
 		$this->form_validation->CI =& $this;
 		$this->mod_url=base_url().RIMBUN_SYSTEM.'/'.$this->prefix_folder;
