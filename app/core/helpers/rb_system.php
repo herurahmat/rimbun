@@ -133,3 +133,11 @@ if(!function_exists('rb_check_remote_file'))
 	}
 }
 
+if(!function_exists('_c'))
+{
+	function _c($function,$arg=array())
+	{
+		$target=call_user_func_array('rb_'.$function,$arg);
+		return $target;
+	}
+}
