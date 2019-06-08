@@ -63,6 +63,10 @@ $m_tools=array(
 				'icon'=>'fa fa-database',
 				'url'=>'core/tools/dbutility',
 			),
+			'Check For Update'=>array(
+				'icon'=>'fa fa-database',
+				'url'=>'core/tools/update',
+			),
 		),
 	),
 );
