@@ -21,8 +21,8 @@ if(!function_exists('rb_db_data'))
 	function rb_db_data($dbGroup='',$table,$where=array(),$order="",$group="",$limit='',$start='')
 	{
 		$CI= &get_instance();
-		$CI->load->model(RIMBUN_SYSTEM.'/DB_model');
-		$d=$CI->DB_model->db_get_data($dbGroup,$table,$where,$order,$group,$limit,$start);
+		$CI->load->model('core/dbrimbun_model');
+		$d=$CI->dbrimbun_model->db_get_data($dbGroup,$table,$where,$order,$group,$limit,$start);
 		return $d;
 	}
 }
@@ -32,8 +32,8 @@ if(!function_exists('rb_db_row'))
 	function rb_db_row($dbGroup='',$table,$where=array(),$field)
 	{
 		$CI= &get_instance();
-		$CI->load->model(RIMBUN_SYSTEM.'/DB_model');
-		$item=$CI->DB_model->db_get_row($dbGroup,$table,$where,$field);
+		$CI->load->model('core/dbrimbun_model');
+		$item=$CI->dbrimbun_model->db_get_row($dbGroup,$table,$where,$field);
 		return $item;
 	}
 }
@@ -43,8 +43,8 @@ if(!function_exists('rb_db_count'))
 	function rb_db_count($dbGroup='',$table,$where=array())
 	{
 		$CI= &get_instance();
-		$CI->load->model(RIMBUN_SYSTEM.'/DB_model');
-		$item=$CI->DB_model->db_count_data($dbGroup,$table,$where);
+		$CI->load->model('core/dbrimbun_model');
+		$item=$CI->dbrimbun_model->db_count_data($dbGroup,$table,$where);
 		return $item;
 	}
 }

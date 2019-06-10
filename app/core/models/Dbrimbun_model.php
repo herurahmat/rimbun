@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 use Rimbun\Common;
-class DB_model extends CI_Model
+class Dbrimbun_model extends CI_Model
 {
 	private $sef;
 	
