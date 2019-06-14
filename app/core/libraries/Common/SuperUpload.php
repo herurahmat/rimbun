@@ -126,7 +126,6 @@ class SuperUpload extends File
 			$this->CI->upload->initialize($cfg,TRUE);
 			if($this->CI->upload->do_upload($field_name)==TRUE)
 			{
-				var_dump($this->CI->upload->data());
 				return true;
 			}else{
 				return false;
