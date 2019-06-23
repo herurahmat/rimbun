@@ -5,7 +5,7 @@ class Doc_model extends CI_Model
 {
 	private $file;
 	private $doc_folder;
-	private $no_folder=array('.','..','config','core','laporan','views','plugins','api');
+	private $no_folder=array('.','..','config','core','laporan','views','plugins','api','models');
 	
 	function __construct()
 	{
@@ -68,9 +68,11 @@ class Doc_model extends CI_Model
 		$explode=explode("\\",$segment);
 		$count_explode=count($explode);
 		$count_explode1=$count_explode-1;
+		$folder_list='';
 		for($i=0;$i<$count_explode1;$i++)
 		{
-			$this->file->create_directory($this->doc_folder.DS.$explode[$i]);
+			$folder_list.=$explode[$i].DS;
+			$this->file->create_directory($this->doc_folder.DS.$folder_list.DS);
 		}
 		write_file($this->doc_folder.$segment.'.html',$content);
 		return true;

@@ -82,12 +82,21 @@ if(!function_exists('rb_get_documentation'))
 		{
 			$doc_url=base_url().'manual/';
 		}
-		
 		if($help==TRUE)
 		{
 			$last = $CI->uri->total_segments();
+			$last2 = $CI->uri->total_segments();
+			if($last==4)
+			{
+				$last=3;
+			}
 			$record_num = $CI->uri->segment($last);
 			$ss=$CI->uri->segment_array();
+			if($last2==4)
+			{
+				unset($ss[4]);
+			}
+			
 			if($CI->uri->segment(1)!="core")
 			{
 							
@@ -98,14 +107,15 @@ if(!function_exists('rb_get_documentation'))
 					{
 						if($r==$record_num)
 						{
-							$o.=$r.'.html';
+							$o.=ucfirst($r).'.html';
 						}else{
-							$o.=$r.'/';
+							$o.=ucfirst($r).'/';
 						}
 					}
 				}
 			$url_helper=$doc_url.$o;
-			if(rb_check_remote_file($url_helper)==TRUE)
+			$file_path=FCPATH.'manual'.DS.$o;
+			if(file_exists($file_path) && is_file($file_path))
 			{
 				$ot='<a href="javascript:;" data-target="'.$url_helper.'" id="rb-helper-box" class="btn btn-default btn-flat btn-sm pull-right">
 			    	<i class="fa fa-question"></i> Help
