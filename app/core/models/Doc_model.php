@@ -5,7 +5,7 @@ class Doc_model extends CI_Model
 {
 	private $file;
 	private $doc_folder;
-	private $no_folder=array('.','..','config','core','laporan','views','plugins','api','models');
+	private $no_folder=array('.','..','config','core','laporan','views','plugins','api','models','language');
 	
 	function __construct()
 	{

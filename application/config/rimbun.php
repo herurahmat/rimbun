@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
+Bahasa yg digunakan.
+Default english
+*/
+$config['rimbun']['language']='english';
+
+/*
 Folder ASSETS yang berisikan system assets.
 Default base_url/assets
 */
