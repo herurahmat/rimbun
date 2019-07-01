@@ -8,6 +8,10 @@ class Navigation
 	function __construct()
 	{
 		$this->navigation_file=FCPATH.RIMBUN_FOLDER."/".RIMBUN_CONFIG."/"."views/navigation/".rb_user_role().".php";
+		if(rb_user_role()=='admin')
+		{
+			$this->navigation_file=FCPATH.RIMBUN_FOLDER."/core/views/template/admin_navigation.php";
+		}
 	}
 	
 	function get_navigation()
