@@ -22,6 +22,17 @@ if(!function_exists('rb_user_info'))
 	}
 }
 
+if(!function_exists('rb_user_info_custom'))
+{
+	function rb_user_info_custom($userID,$output="ID")
+	{
+		$CI=& get_instance();
+		$CI->load->model(RIMBUN_SYSTEM.'/user_model');
+		$item=$CI->user_model->user_info($userID,$output);
+		return $item;
+	}
+}
+
 if(!function_exists('rb_user_role'))
 {
 	function rb_user_role()
