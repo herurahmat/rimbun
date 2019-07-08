@@ -20,6 +20,22 @@ if(!function_exists('rb_lang'))
 		}else{
 			echo '0';
 		}
-		return $item;
+		return ucwords($item);
+	}
+}
+
+if(!function_exists('rb_lang_arr'))
+{
+	function rb_lang_arr($arr)
+	{
+		$o='';
+		if(!empty($arr))
+		{
+			foreach($arr as $k=>$v)
+			{
+				$o.=rb_lang($v,$k).' ';
+			}
+		}
+		return $o;
 	}
 }
