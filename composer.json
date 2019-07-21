@@ -4,6 +4,7 @@
 	"type": "project",
 	"homepage": "http://ilmuprogrammer.com",
 	"license": "MIT",
+	"version":"1.0.3",
 	"keywords": [
         "codeigniter",
         "builder"
