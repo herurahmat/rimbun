@@ -60,7 +60,7 @@ Fitur
 - User
 
 *******************
-Cara Penggunaan <https://github.com/urangawak/rimbun/wiki>
+Cara Penggunaan <https://github.com/herurahmat/rimbun/wiki>
 
 *******************
 Contact Info :
