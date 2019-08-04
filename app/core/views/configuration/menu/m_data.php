@@ -153,12 +153,12 @@ $(document).ready(function(){
 		    dataType : "json",
 		    beforeSend: function(  ) {
 		    	overlay_show();
+		    	$("#modaladditem").modal('hide');
 		  	},
 			})
 		  	.done(function( x ) {
 		  		if(x.status=="ok")
-		  		{
-		  			$("#modaladditem").modal('hide');
+		  		{		  			
 					generate_menu(<?=$menuid;?>);
 				}else{
 					alert('Failed create item menu');
