@@ -16,39 +16,44 @@ class Navigation
 	
 	function get_navigation()
 	{
+		$role=rb_user_role();
+		$menu_db=$this->get_menu_db($role);
+		$menu=array();
+		$merge=array();
 		if(file_exists($this->navigation_file) && is_file($this->navigation_file))
 		{
 			
 		
-		require_once($this->navigation_file);
-		$plugin=$this->get_plungins();
-		$merge=array();
-		$role=rb_user_role();
-		$menu_db=$this->get_menu_db($role);
-		if(!empty($plugin))
-		{
-			$merge_data=array();
-			foreach($plugin as $p)
+			require_once($this->navigation_file);
+			$plugin=$this->get_plungins();
+			$merge=array();
+			
+			
+			if(!empty($plugin))
 			{
-				$merge_data[ucfirst($p)]=array(
-						'icon'=>'fa fa-circle-o',
-						'url'=>'plugins/'.$p.'/home',
+				$merge_data=array();
+				foreach($plugin as $p)
+				{
+					$merge_data[ucfirst($p)]=array(
+							'icon'=>'fa fa-circle-o',
+							'url'=>'plugins/'.$p.'/home',
+					);
+				}
+				$merge=array(
+					'Plugins'=>array(
+						'icon'=>'fa fa-star',
+						's1'=>'plugins',
+						's2'=>'',
+						'child'=>$merge_data
+					),
 				);
 			}
-			$merge=array(
-				'Plugins'=>array(
-					'icon'=>'fa fa-star',
-					's1'=>'plugins',
-					's2'=>'',
-					'child'=>$merge_data
-				),
-			);
+				
+		
 		}
 		
 		$arr=array_merge($menu,$menu_db,$merge);
 		return $arr;
-		
-		}
 	}
 	
 	private function get_plungins()
