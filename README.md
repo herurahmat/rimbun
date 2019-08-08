@@ -64,5 +64,4 @@ Cara Penggunaan <https://github.com/herurahmat/rimbun/wiki>
 
 *******************
 Contact Info :
-https://blog.rimbun.id/ <br/>
 eyubalzary@gmail.com
